@@ -1,0 +1,8 @@
+<% @article_hash["data"]["children"].each do |a| %>
+   <% title = a["data"]["title"] %>
+   <% rank = a["data"]["ups"] %>
+   <% link = a["data"]["url"] %>
+   <h1><%= title %></h1>
+   <h1><%= rank %></h1>
+   <h1><%= link %></h1>
+<% end %>
