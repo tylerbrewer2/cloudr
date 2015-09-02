@@ -1,6 +1,7 @@
 module ArticleParser
   require 'json'
   require 'open-uri'
+  require 'pry'
 
   BASE_URL = "https://www.reddit.com/r"
   LIMIT = 25
@@ -14,20 +15,19 @@ module ArticleParser
   end
 
   def get_article_info(article_hash)
-    article_hash["data"]["children"][1]["data"].each do |k, v|
-      # need nested iteration
-      title = k["title"]
-      rank = a["data"]["ups"]
-      link = a["data"]["url"]
-      comment_link = a["data"]["permalink"]
-      num_comments = a["data"]["num_comments"]
-      domain = a["data"]["domain"]
-      utc = a["data"]["created"]
+    order = LIMIT
+    article_hash["data"]["children"].each do |hash|
+      a = Article.new
+      a.title = hash["data"]["title"]
+      a.rank = hash["data"]["ups"]
+      a.link = hash["data"]["url"]
+      a.comment_link = hash["data"]["permalink"]
+      a.num_comments = hash["data"]["num_comments"]
+      a.domain = hash["data"]["domain"]
+      a.utc = hash["data"]["created"]
+      a.order_num = order
+      a.save
+      order -= 1
     end
   end
-  # def article(category)
-  #   url = get_url(category)
-  #   hash = get_json(url)
-  #   get_article_info(hash)
-  # end
 end

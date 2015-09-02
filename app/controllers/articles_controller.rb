@@ -1,11 +1,10 @@
 class ArticlesController < ApplicationController
   include ArticleParser
-
   def index
+    category = 'news'
     url = get_url(category)
     hash = get_json(url)
-    @article = Article.new
-    @article.get_article_info(hash)
+    get_article_info(hash)
   end
 
   def create

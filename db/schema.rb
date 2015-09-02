@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150901163235) do
     t.integer  "num_comments"
     t.string   "domain"
     t.integer  "utc"
+    t.integer  "order_num"
     t.integer  "cloud_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -29,10 +30,8 @@ ActiveRecord::Schema.define(version: 20150901163235) do
   add_index "articles", ["cloud_id"], name: "index_articles_on_cloud_id"
 
   create_table "clouds", force: :cascade do |t|
-    t.string   "name",       default: "Tuesday Sep. 09, 2015", null: false
-    t.datetime "date",       default: '2015-09-01 17:24:57',   null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

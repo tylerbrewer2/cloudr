@@ -8,6 +8,7 @@ class CreateArticles < ActiveRecord::Migration
       t.integer     :num_comments
       t.string      :domain
       t.integer     :utc
+      t.integer     :order_num
       t.belongs_to  :cloud, index: true
       t.timestamps null: false
     end
