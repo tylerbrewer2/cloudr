@@ -1,5 +1,5 @@
-<%= javascript_include_tag 'd3' %>
-<%= javascript_include_tag 'd3.layout.cloud' %>
+<script src="../../app/assets/javascripts/d3.js"></script>
+<script src="../../app/assets/javascripts/d3.layout.cloud.js"></script>
 <script>(function() {
 
 var fill = d3.scale.category20();
@@ -7,8 +7,8 @@ var fill = d3.scale.category20();
 <% test1 = [] %>
 <% test2 = [] %>
 
-<% @articles.take(25).each {|article| test1 << article.title[0..15]} %>
-<% @articles.take(25).each {|article| test2 << article.order_num * 2} %>
+<% @articles.each {|article| test1 << article.title} %>
+<% @articles.each {|article| test2 << article.order_num} %>
 
 var jWord = <%= raw test1.to_json %>;
 var jCount = <%= raw test2.to_json %>;
@@ -16,7 +16,7 @@ var jCount = <%= raw test2.to_json %>;
 var layout = d3.layout.cloud()
     .size([1000,1000])
     .words(d3.zip(jWord, jCount).map(function(d) {
-        return {text: d[0], size: d[1]* 2};
+        return {text: d[0], size: d[1]* 10};
     }))
     .padding(5)
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -46,11 +46,3 @@ function draw(words) {
 }
 
 })();</script>
-
-<% @articles.each do |a| %>
-  <ul>
-    <li><a href="<%= a.link %>"><%= a.title %></a></li>
-    <li><%= a.order_num %></li>
-    <li><%= a.cloud_id %></li>
-  </ul>
-<% end %>
