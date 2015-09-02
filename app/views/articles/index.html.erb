@@ -20,7 +20,7 @@ var layout = d3.layout.cloud()
     }))
     .padding(5)
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
-    .font("Impact")
+    .font("Times New Roman")
     .fontSize(function(d) { return d.size; })
     .on("end", draw);
 
@@ -36,7 +36,7 @@ function draw(words) {
       .data(words)
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
-      .style("font-family", "Impact")
+      .style("font-family", "Times New Roman")
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("transform", function(d) {
@@ -46,11 +46,3 @@ function draw(words) {
 }
 
 })();</script>
-
-<% @articles.each do |a| %>
-  <ul>
-    <li><a href="<%= a.link %>"><%= a.title %></a></li>
-    <li><%= a.order_num %></li>
-    <li><%= a.cloud_id %></li>
-  </ul>
-<% end %>
