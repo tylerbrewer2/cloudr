@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.integer     :rank
       t.string      :link
       t.integer     :order_num
-      t.belongs_to  :cloud, index: true
+      t.integer     :cloud_id, index: true
       t.timestamps null: false
     end
   end
