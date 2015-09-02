@@ -17,14 +17,10 @@ ActiveRecord::Schema.define(version: 20150901163235) do
     t.string   "title"
     t.integer  "rank"
     t.string   "link"
-    t.string   "comment_link"
-    t.integer  "num_comments"
-    t.string   "domain"
-    t.integer  "utc"
     t.integer  "order_num"
     t.integer  "cloud_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "articles", ["cloud_id"], name: "index_articles_on_cloud_id"

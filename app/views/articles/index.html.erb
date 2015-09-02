@@ -1,0 +1,7 @@
+<% @articles.each do |a| %>
+  <ul>
+    <li><a href="<%= a.link %>"><%= a.title %></a></li>
+    <li><%= a.order_num %></li>
+    <li><%= a.cloud_id %></li>
+  </ul>
+<% end %>
