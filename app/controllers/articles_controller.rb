@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   include ArticleParser
+  respond_to :html, :js
+
   def index
     category = 'news'
     url = get_url(category)
