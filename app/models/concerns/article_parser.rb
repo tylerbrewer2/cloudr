@@ -16,15 +16,13 @@ module ArticleParser
 
   def get_article_info(article_hash)
     order = LIMIT
+    cloud = Cloud.create
     article_hash["data"]["children"].each do |hash|
       a = Article.new
       a.title = hash["data"]["title"]
       a.rank = hash["data"]["ups"]
       a.link = hash["data"]["url"]
-      a.comment_link = hash["data"]["permalink"]
-      a.num_comments = hash["data"]["num_comments"]
-      a.domain = hash["data"]["domain"]
-      a.utc = hash["data"]["created"]
+      a.cloud_id = cloud.id
       a.order_num = order
       a.save
       order -= 1
