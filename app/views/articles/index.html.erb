@@ -6,17 +6,20 @@ var fill = d3.scale.category20();
 
 <% test1 = [] %>
 <% test2 = [] %>
+<% test3 = [] %>
 
 <% @articles.take(25).each {|article| test1 << article.title[0..15]} %>
 <% @articles.take(25).each {|article| test2 << article.order_num * 2} %>
+<% @articles.take(25).each {|article| test3 << article.link } %>
 
 var jWord = <%= raw test1.to_json %>;
 var jCount = <%= raw test2.to_json %>;
+var jLink = <%= raw test3.to_json %>;
 
 var layout = d3.layout.cloud()
     .size([1000,1000])
-    .words(d3.zip(jWord, jCount).map(function(d) {
-        return {text: d[0], size: d[1]* 2};
+    .words(d3.zip(jWord, jCount, jLink).map(function(d) {
+        return {text: d[0], size: d[1]* 2, url: d[2]};
     }))
     .padding(5)
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -27,6 +30,7 @@ var layout = d3.layout.cloud()
 layout.start();
 
 function draw(words) {
+  console.log(words)
   d3.select("body").append("svg")
       .attr("width", layout.size()[0])
       .attr("height", layout.size()[1])
@@ -42,7 +46,10 @@ function draw(words) {
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
       })
-      .text(function(d) { return d.text; });
+      .text(function(d) { return d.text; })
+      .on("click", function (d, i){
+          window.open(d.url, "_blank");
+      });
 }
 
 })();</script>
