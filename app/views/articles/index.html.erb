@@ -1,4 +1,4 @@
-<nav class ="navigation">
+<!-- <nav class ="navigation">
 	<div class="content">
 		<ul>
 			<li class="nav-links"><a href="#">Log In</a></li>
@@ -6,12 +6,10 @@
 		</ul>
 	</div>
   <img class="logo" src="images/logo.png">
-</nav>
-
+</nav> -->
 
 <div class="container">
-    <h3>Word Cloud</h3>
-    <div id="word-cloud"></div>
+	<div id="word-cloud"></div>
 </div>
 <%= javascript_include_tag 'd3' %>
 <%= javascript_include_tag 'd3.layout.cloud' %>
@@ -45,17 +43,19 @@ var jLink = <%= raw test3.to_json %>;
 
 var fill = d3.scale.category20();
 
-var width = 1200;
-var height = 800;
+var width = 960
+var height = 600
 
 var layout = d3.layout.cloud()
     .size([width, height])
     .words(d3.zip(jWord, jCount, jLink).map(function(d) {
         return {text: d[0], size: d[1]* 2, url: d[2]};
     }))
-    .padding(0)
+    .padding(1)
+		// .spiral('archimedean')
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
-    .font("Impact")
+		// .rotate(function() { return (~~(Math.random() * 6) - 3) * 30; })
+    .font("Oswald")
     .fontSize(function(d) { return d.size; })
     .on("end", drawCloud);
 layout.start();
@@ -70,9 +70,11 @@ function drawCloud(words) {
     .selectAll("text")
       .data(words)
     .enter().append("text")
+			.transition()
+			.duration(1000)
       .style("font-size", function(d) { return d.size + "px"; })
       // changes font-family
-      .style("font-family", "Impact")
+      .style("font-family", "Oswald")
       // changes text color
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
@@ -88,5 +90,4 @@ function drawCloud(words) {
 
 $(".container").hide();
 $(".container").fadeIn("slow");
-
 </script>

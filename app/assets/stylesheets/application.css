@@ -15,6 +15,7 @@
  */
 
  @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+ @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
 
  .navigation {
  	background-color: #f0f5f8;
@@ -54,6 +55,17 @@
  	cursor: pointer;
  }
 
+.container {
+  padding-top: 50px;
+  background: #fafafa;
+}
+
 #word-cloud {
-  margin: 0 auto
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+text {
+  cursor: pointer;
+  cursor: hand;
 }
