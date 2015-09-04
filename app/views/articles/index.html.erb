@@ -26,12 +26,13 @@
 <%test4 = []  %>
 <% test2.each do |num| %>
   <% case %>
-    <% when test2[0] == num then test4 << 45 %>
-    <% when test2[1..10].include?(num) then test4 << 25 %>
-    <% when test2[11..20].include?(num) then test4 << 15 %>
-    <% when test2[21..30].include?(num) then test4 << 10 %>
-    <% when test2[31..40].include?(num) then test4 << 6 %>
-    <% when test2[41..49].include?(num) then test4 << 3 %>
+    <% when test2[0] == num then test4 << 64 %>
+    <% when test2[1] == num then test4 << 36 %>
+		<% when test2[2..4].include?(num) then test4 << 32 %>
+		<% when test2[5..10].include?(num) then test4 << 16 %>
+    <% when test2[11..20].include?(num) then test4 << 14 %>
+    <% when test2[21..30].include?(num) then test4 << 12 %>
+    <% when test2[31..50].include?(num) then test4 << 8 %>
   <% end %>
 <% end %>
 
@@ -43,13 +44,13 @@ var jLink = <%= raw test3.to_json %>;
 
 var fill = d3.scale.category20();
 
-var width = 960
+var width = 1000
 var height = 600
 
 var layout = d3.layout.cloud()
     .size([width, height])
     .words(d3.zip(jWord, jCount, jLink).map(function(d) {
-        return {text: d[0], size: d[1]* 2, url: d[2]};
+        return {text: d[0], size: d[1] * 2, url: d[2]};
     }))
     .padding(1)
 		// .spiral('archimedean')
