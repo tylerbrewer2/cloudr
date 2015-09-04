@@ -1,46 +1,79 @@
+<nav class ="navigation">
+	<div class="content">
+		<ul>
+			<li class="nav-links"><a href="#">Log In</a></li>
+			<li class="nav-links"><a href="#">Sign Up</a></li>
+		</ul>
+	</div>
+  <img class="logo" src="images/logo.png">
+</nav>
+
+
+<div class="container">
+    <h3>Word Cloud</h3>
+    <div id="word-cloud"></div>
+</div>
 <%= javascript_include_tag 'd3' %>
 <%= javascript_include_tag 'd3.layout.cloud' %>
 <script>(function() {
-
-var fill = d3.scale.category20();
 
 <% test1 = [] %>
 <% test2 = [] %>
 <% test3 = [] %>
 
-<% @articles.take(25).each {|article| test1 << article.title.scan(/^((?:\S+\s+){2}\S+).*/i).join(' ')} %>
-<% @articles.take(25).each {|article| test2 << article.order_num * 1.5} %>
-<% @articles.take(25).each {|article| test3 << article.link } %>
+<% @articles.take(50).each {|article| test1 << article.title.scan(/^((?:\S+\s+){2}\S+).*/i).join(' ')} %>
+<% @articles.take(50).each {|article| test2 << article.order_num} %>
+<% @articles.take(50).each {|article| test3 << article.link } %>
+
+<%test4 = []  %>
+<% test2.each do |num| %>
+  <% case %>
+    <% when test2[0] == num then test4 << 45 %>
+    <% when test2[1..10].include?(num) then test4 << 25 %>
+    <% when test2[11..20].include?(num) then test4 << 15 %>
+    <% when test2[21..30].include?(num) then test4 << 10 %>
+    <% when test2[31..40].include?(num) then test4 << 6 %>
+    <% when test2[41..49].include?(num) then test4 << 3 %>
+  <% end %>
+<% end %>
 
 var jWord = <%= raw test1.to_json %>;
-var jCount = <%= raw test2.to_json %>;
+var jCount = <%= raw test4.to_json %>;
 var jLink = <%= raw test3.to_json %>;
 
+/////// START WORD CLOUD \\\\\\\\\
+
+var fill = d3.scale.category20();
+
+var width = 1200;
+var height = 800;
+
 var layout = d3.layout.cloud()
-    .size([960,600])
+    .size([width, height])
     .words(d3.zip(jWord, jCount, jLink).map(function(d) {
         return {text: d[0], size: d[1]* 2, url: d[2]};
     }))
-    .padding(5)
+    .padding(0)
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
     .font("Impact")
     .fontSize(function(d) { return d.size; })
-    .on("end", draw);
-
+    .on("end", drawCloud);
 layout.start();
 
-function draw(words) {
-  console.log(words)
-  d3.select("body").append("svg")
-      .attr("width", layout.size()[0])
-      .attr("height", layout.size()[1])
+function drawCloud(words) {
+  d3.select("#word-cloud").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("style", "margin-left: 100px")
     .append("g")
-      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     .selectAll("text")
       .data(words)
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
+      // changes font-family
       .style("font-family", "Impact")
+      // changes text color
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("transform", function(d) {
@@ -51,4 +84,9 @@ function draw(words) {
           window.open(d.url, "_blank");
       });
 }
-})();</script>
+})();
+
+$(".container").hide();
+$(".container").fadeIn("slow");
+
+</script>

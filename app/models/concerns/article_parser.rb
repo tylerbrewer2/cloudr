@@ -4,7 +4,7 @@ module ArticleParser
   require 'pry'
 
   BASE_URL = "https://www.reddit.com/r"
-  LIMIT = 25
+  LIMIT = 50
 
   def get_url(category)
     "#{BASE_URL}/#{category}.json?limit=#{LIMIT}"

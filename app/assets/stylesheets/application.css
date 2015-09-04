@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+ .navigation {
+ 	background-color: #f0f5f8;
+  font-family: "Source Sans Pro";
+ 	position: fixed;
+ 	width: 100%;
+ 	height: 5rem;
+ 	top: 0;
+ 	margin-right: auto;
+ 	margin-left: auto;
+ 	z-index: 9999;
+ }
+ .logo {
+ 	float: left;
+ 	padding-top: .3em;
+ 	padding-left: 2em;
+ 	width: 18em;
+ }
+
+ .nav-links {
+ 	float: right;
+ 	display: inline-block;
+ 	padding-right: 3rem;
+ 	padding-top: .9rem;
+ 	font-weight: 400;
+ }
+ .nav-links a {
+ 	transition: color .25s ease;
+ 	text-decoration: none;
+ 	color: #40565C;
+ }
+ .nav-links a:visited {
+ 	color: #40565C;
+ }
+ .nav-links a:hover {
+ 	color: #C4D2DB;
+ 	cursor: pointer;
+ }
+
+#word-cloud {
+  margin: 0 auto
+}
