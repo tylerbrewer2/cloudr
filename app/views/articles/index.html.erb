@@ -65,7 +65,6 @@ function drawCloud(words) {
   d3.select("#word-cloud").append("svg")
       .attr("width", width)
       .attr("height", height)
-      .attr("style", "margin-left: 100px")
     .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     .selectAll("text")
@@ -73,7 +72,8 @@ function drawCloud(words) {
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
       // changes font-family
-      .style("font-family", "Oswald")
+      .style("font-family", "Source Sans Pro")
+			.style("font-weight", "600")
       // changes text color
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")

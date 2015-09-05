@@ -14,7 +14,7 @@
  *= require_self
  */
 
- @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+ @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
  @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
 
  body {
@@ -60,7 +60,8 @@
  }
 
 .container {
-  padding-top: 50px;
+  margin-top: 130px;
+  text-align: center;
 }
 
 #word-cloud {
