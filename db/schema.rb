@@ -11,21 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901163235) do
+ActiveRecord::Schema.define(version: 20150906210308) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.integer  "rank"
     t.string   "link"
     t.integer  "order_num"
-    t.integer  "cloud_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "articles", ["cloud_id"], name: "index_articles_on_cloud_id"
+  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
 
-  create_table "clouds", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

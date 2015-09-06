@@ -1,0 +1,15 @@
+<nav class ="navigation">
+	<div class="content">
+		<ul>
+			<li class="nav-links"><a href="#">Log In</a></li>
+			<li class="nav-links"><a href="#">Sign Up</a></li>
+		</ul>
+	</div>
+  <img class="logo" src="<%= asset_path( 'cloudr.png' ) %>">
+</nav>
+
+
+<%= form_for :category, url: articles_path do |f| %>
+  <%= collection_select(:category, :id, Category.all, :name, :name) %>
+  <%= f.submit %>
+<% end  %>

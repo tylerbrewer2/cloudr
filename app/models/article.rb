@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  belongs_to :cloud
+  belongs_to :category
 
   private
 

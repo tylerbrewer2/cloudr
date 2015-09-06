@@ -5,3 +5,40 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+categories = Category.create([
+  { name: 'funny' },
+  { name: 'pics' },
+  { name: 'adviceanimals' },
+  { name: 'todayilearned' },
+  { name: 'aww' },
+  { name: 'videos' },
+  { name: 'gifs' },
+  { name: 'wtf' },
+  { name: 'gaming' },
+  { name: 'askreddit' },
+  { name: 'worldnews' },
+  { name: 'showerthoughts' },
+  { name: 'news' },
+  { name: 'politics' },
+  { name: 'movies' },
+  { name: 'jokes' },
+  { name: 'technology' },
+  { name: 'science' },
+  { name: 'cats' },
+  { name: 'creepy' },
+  { name: 'sports' },
+  { name: 'pics' },
+  { name: 'space' },
+  { name: 'music' },
+  { name: 'food' },
+  { name: 'television' },
+  { name: 'creepyencounters' },
+  { name: 'fitness' },
+  { name: 'diy' },
+  { name: 'upliftingnews' },
+  { name: 'programming' },
+  { name: 'oldschoolcool' },
+  { name: 'books' },
+  { name: 'art' }
+])

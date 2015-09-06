@@ -14,15 +14,14 @@ module ArticleParser
     JSON.load(open(url))
   end
 
-  def get_article_info(article_hash)
+  def get_article_info(article_hash, category)
     order = LIMIT
-    cloud = Cloud.create
     article_hash["data"]["children"].each do |hash|
       a = Article.new
       a.title = hash["data"]["title"]
       a.rank = hash["data"]["ups"]
       a.link = hash["data"]["url"]
-      a.cloud_id = cloud.id
+      a.category_id = category
       a.order_num = order
       a.save
       order -= 1

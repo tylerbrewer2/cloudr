@@ -24,13 +24,11 @@
  .navigation {
  	background-color: #f0f5f8;
   font-family: "Source Sans Pro";
- 	position: fixed;
  	width: 100%;
  	height: 5rem;
  	top: 0;
  	margin-right: auto;
  	margin-left: auto;
- 	z-index: 9999;
  }
  .logo {
  	float: left;
@@ -42,8 +40,8 @@
  .nav-links {
  	float: right;
  	display: inline-block;
- 	padding-right: 3rem;
- 	padding-top: .9rem;
+ 	padding-right: 3em;
+ 	padding-top: .9em;
  	font-weight: 400;
  }
  .nav-links a {
