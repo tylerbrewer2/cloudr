@@ -1,4 +1,4 @@
-<body class="navigation_page">
+<body class="background_page">
 	<nav class ="navigation">
 		<div class="content">
 			<ul>
@@ -12,6 +12,7 @@
 
 	<div class="dropdown">
 		<h1>Welcome.</h1>
+		<%= flash[:notice] %>
 	  <%= form_for :category, url: articles_path do |f| %>
 	    <%= collection_select(:category, :id, Category.all, :name, :name, {prompt: "Select a Category"}, {class: 'form-control'})%><br>
 	    <%= f.submit "Generate Cloud", class: 'btn btn-info submit' %>
