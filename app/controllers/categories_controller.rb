@@ -4,4 +4,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def about
+  end
+
 end

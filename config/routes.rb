@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'categories#index'
 
   post "/articles", to: "articles#index"
+  get "/about", to: "categories#about"
 
   resources :articles
   resources :categories

@@ -26,29 +26,37 @@
     background: #fff;
   }
 
+  .navigation_page, .about_page {
+    background: url(asset_path( 'cloud_background_opacity' ));
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+
  .navigation {
+   display: inline-block;
  	background-color: #f0f5f8;
   font-family: "Source Sans Pro";
- 	position: fixed;
  	width: 100%;
- 	height: 5rem;
- 	top: 0;
+ 	height: 5em;
  	margin-right: auto;
  	margin-left: auto;
- 	z-index: 9999;
+  z-index: 9999;
  }
  .logo {
  	float: left;
  	padding-top: .3em;
  	padding-left: 2em;
- 	width: 9em;
+ 	width: 12em;
  }
 
  .nav-links {
  	float: right;
+  font-size: 1.2em;
  	display: inline-block;
  	padding-right: 3em;
- 	padding-top: .9em;
+ 	padding-top: .8em;
  	font-weight: 400;
  }
  .nav-links a {
@@ -66,7 +74,6 @@
 
 .container {
   width: 100%;
-  margin-top: 50px;
 }
 
 text {
@@ -77,9 +84,28 @@ text {
 .dropdown {
   width: 30%;
   margin: 0 auto;
-  margin-top: 22em;
+  margin-top: 18em;
   text-align: center;
 }
 
 .form-control {
+}
+
+svg {
+  margin-top: -35px;
+}
+
+.description {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 14em;
+  width: 50%;
+}
+
+.description h1 {
+  font-size: 3em;
+}
+
+.description p {
+  font-size: 1.2em;
 }

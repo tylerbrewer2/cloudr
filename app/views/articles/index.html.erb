@@ -1,8 +1,9 @@
 <nav class ="navigation">
 	<div class="content">
 		<ul>
-			<li class="nav-links"><a href="#">Log In</a></li>
-			<li class="nav-links"><a href="#">Sign Up</a></li>
+			<li class="nav-links"><a href="https://github.com/tylerbrewer2/news_cloudr" target ="_blank">Github</a></li>
+			<li class="nav-links"><a href="#">Contact</a></li>
+			<li class="nav-links"><a href="<%= about_path %>">About</a></li>
 		</ul>
 	</div>
   <a href= <%=root_path%>><img class="logo" src="<%= asset_path( 'cloudr.png' ) %>"></a>
@@ -53,7 +54,7 @@ var layout = d3.layout.cloud()
     .words(d3.zip(jWord, jCount, jLink).map(function(d) {
         return {text: d[0], size: d[1] * 2, url: d[2]};
     }))
-    .padding(1)
+    .padding(2)
     .rotate(function() { return ~~(Math.random() * 1) * 90; })
     .font("Oswald")
     .fontSize(function(d) { return d.size; })
