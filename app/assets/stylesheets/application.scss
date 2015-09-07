@@ -19,6 +19,12 @@
 
  @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
  @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+ @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+  body {
+    overflow: hidden;
+    background: #fff;
+  }
 
  .navigation {
  	background-color: #f0f5f8;
@@ -59,8 +65,8 @@
  }
 
 .container {
-  margin-top: 30px;
-  margin-left: 0;
+  width: 100%;
+  margin-top: 50px;
 }
 
 text {
