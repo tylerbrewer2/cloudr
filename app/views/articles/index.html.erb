@@ -21,7 +21,7 @@
 <% test2 = [] %>
 <% test3 = [] %>
 
-<% @articles.take(50).each {|article| test1 << article.title.scan(/^((?:\S+\s+){2}\S+).*/i).join(' ')} %>
+<% @articles.take(50).each {|article| test1 << article.title.scan(/^((?:\S+\s+){2}\S+).*/i).join(' ').upcase} %>
 <% @articles.take(50).each {|article| test2 << article.order_num} %>
 <% @articles.take(50).each {|article| test3 << article.link } %>
 
