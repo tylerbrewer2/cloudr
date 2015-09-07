@@ -5,7 +5,7 @@
 			<li class="nav-links"><a href="#">Sign Up</a></li>
 		</ul>
 	</div>
-  <img class="logo" src="<%= asset_path( 'cloudr.png' ) %>">
+  <a href= <%=root_path%>><img class="logo" src="<%= asset_path( 'cloudr.png' ) %>"></a>
 </nav>
 
 
@@ -43,10 +43,10 @@ var jLink = <%= raw test3.to_json %>;
 
 /////// START WORD CLOUD \\\\\\\\\
 
-var fill = d3.scale.category20blue();
+var fill = d3.scale.category20d();
 
-var width = 1000
-var height = 600
+var width = $(window).width();
+var height = $(window).height();
 
 var layout = d3.layout.cloud()
     .size([width, height])
@@ -55,9 +55,9 @@ var layout = d3.layout.cloud()
     }))
     .padding(1)
 		// .spiral('archimedean')
-    .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    .rotate(function() { return ~~(Math.random() * 1) * 90; })
 		// .rotate(function() { return (~~(Math.random() * 6) - 3) * 30; })
-    .font("Oswald")
+    .font("Source Sans Pro")
     .fontSize(function(d) { return d.size; })
     .on("end", drawCloud);
 layout.start();
