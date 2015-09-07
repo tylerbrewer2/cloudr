@@ -10,7 +10,6 @@ categories = Category.create([
   { name: 'funny' },
   { name: 'pics' },
   { name: 'adviceanimals' },
-  { name: 'todayilearned' },
   { name: 'aww' },
   { name: 'videos' },
   { name: 'gifs' },
