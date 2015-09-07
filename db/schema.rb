@@ -18,15 +18,20 @@ ActiveRecord::Schema.define(version: 20150906210308) do
     t.integer  "rank"
     t.string   "link"
     t.integer  "order_num"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "cloud_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["cloud_id"], name: "index_articles_on_cloud_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clouds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
