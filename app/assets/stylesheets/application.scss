@@ -35,14 +35,13 @@
   }
 
  .navigation {
-   display: inline-block;
+  display: inline-block;
  	background-color: #f0f5f8;
   font-family: "Source Sans Pro";
  	width: 100%;
  	height: 5em;
  	margin-right: auto;
  	margin-left: auto;
-  z-index: 9999;
  }
  .logo {
  	float: left;
@@ -108,4 +107,21 @@ svg {
 
 .description p {
   font-size: 1.2em;
+}
+
+.contact {
+  margin-top: 6em;
+}
+
+.brewer {
+  text-align: center;
+}
+
+.machen {
+  text-align: center;
+}
+
+.avatar {
+  margin: 0 auto;
+  height: 20em;
 }
