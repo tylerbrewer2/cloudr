@@ -14,62 +14,66 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
- @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
- @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-  body {
-    overflow: hidden;
-    background: #fff;
-  }
+body {
+  overflow: hidden;
+  background: #fff;
+}
 
-  .background_page {
-    background: url(asset_path( 'cloud_background_opacity' ));
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }
+.background_page {
+  background: url(asset_path( 'cloud_background_opacity' ));
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
 
- .navigation {
-  display: inline-block;
- 	background-color: #f0f5f8;
-  font-family: "Source Sans Pro";
- 	width: 100%;
- 	height: 5em;
- 	margin-right: auto;
- 	margin-left: auto;
- }
- .logo {
- 	float: left;
- 	padding-top: .3em;
- 	padding-left: 2em;
- 	width: 12em;
- }
+.navigation {
+display: inline-block;
+	background-color: #f0f5f8;
+font-family: "Source Sans Pro";
+	width: 100%;
+	height: 5em;
+	margin-right: auto;
+	margin-left: auto;
+}
 
- .nav-links {
- 	float: right;
+.logo {
+	float: left;
+	padding-top: .3em;
+	padding-left: 2em;
+	width: 12em;
+}
+
+.nav-links {
+	float: right;
   font-size: 1.2em;
- 	display: inline-block;
- 	padding-right: 3em;
- 	padding-top: .8em;
- 	font-weight: 400;
- }
- .nav-links a {
- 	transition: color .25s ease;
- 	text-decoration: none;
- 	color: #40565C;
- }
- .nav-links a:visited {
- 	color: #40565C;
- }
- .nav-links a:hover {
- 	color: #C4D2DB;
- 	cursor: pointer;
- }
+	display: inline-block;
+	padding-right: 3em;
+	padding-top: .8em;
+	font-weight: 400;
+}
+
+.nav-links a {
+	transition: color .25s ease;
+	text-decoration: none;
+	color: #40565C;
+}
+
+.nav-links a:visited {
+	color: #40565C;
+}
+
+.nav-links a:hover {
+	color: #C4D2DB;
+	cursor: pointer;
+}
 
 .container {
   width: 100%;
@@ -85,9 +89,6 @@ text {
   margin: 0 auto;
   margin-top: 18em;
   text-align: center;
-}
-
-.form-control {
 }
 
 .description {
@@ -109,11 +110,7 @@ text {
   margin-top: 6em;
 }
 
-.brewer {
-  text-align: center;
-}
-
-.machen {
+.person {
   text-align: center;
 }
 
