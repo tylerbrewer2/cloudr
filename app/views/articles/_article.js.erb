@@ -1,48 +1,75 @@
-<script src="../../app/assets/javascripts/d3.js"></script>
-<script src="../../app/assets/javascripts/d3.layout.cloud.js"></script>
 <script>(function() {
 
-var fill = d3.scale.category20();
+<% article_title = [] %>
+<% article_order = [] %>
+<% article_url = [] %>
 
-<% test1 = [] %>
-<% test2 = [] %>
+<% @articles.take(50).each {|article| article_title << article.title.scan(/^((?:\S+\s+){2}\S+).*/i).join(' ').upcase} %>
+<% @articles.take(50).each {|article| article_order << article.order_num} %>
+<% @articles.take(50).each {|article| article_url << article.link } %>
 
-<% @articles.each {|article| test1 << article.title} %>
-<% @articles.each {|article| test2 << article.order_num} %>
+<% article_size = []  %>
+<% article_order.each do |num| %>
+  <% case %>
+    <% when article_order[0] == num then article_size << 64 %>
+    <% when article_order[1] == num then article_size << 36 %>
+		<% when article_order[2..4].include?(num) then article_size << 32 %>
+		<% when article_order[5..10].include?(num) then article_size << 16 %>
+    <% when article_order[11..20].include?(num) then article_size << 14 %>
+    <% when article_order[21..30].include?(num) then article_size << 12 %>
+    <% when article_order[31..50].include?(num) then article_size << 8 %>
+  <% end %>
+<% end %>
 
-var jWord = <%= raw test1.to_json %>;
-var jCount = <%= raw test2.to_json %>;
+var jWord = <%= raw article_title.to_json %>;
+var jCount = <%= raw article_size.to_json %>;
+var jLink = <%= raw article_url.to_json %>;
+
+/////// START WORD CLOUD \\\\\\\\\
+
+var fill = d3.scale.category20d();
+
+var width = $(window).width();
+var height = $(window).height();
 
 var layout = d3.layout.cloud()
-    .size([1000,1000])
-    .words(d3.zip(jWord, jCount).map(function(d) {
-        return {text: d[0], size: d[1]* 10};
+    .size([width, height])
+    .words(d3.zip(jWord, jCount, jLink).map(function(d) {
+        return {text: d[0], size: d[1] * 2, url: d[2]};
     }))
-    .padding(5)
-    .rotate(function() { return ~~(Math.random() * 2) * 90; })
-    .font("Impact")
+    .padding(2)
+    .rotate(function() { return ~~(Math.random() * 1) * 90; })
+    .font("Oswald")
     .fontSize(function(d) { return d.size; })
-    .on("end", draw);
-
+    .on("end", drawCloud);
 layout.start();
 
-function draw(words) {
-  d3.select("body").append("svg")
-      .attr("width", layout.size()[0])
-      .attr("height", layout.size()[1])
+function drawCloud(words) {
+  d3.select("#word-cloud").append("svg")
+      .attr("width", width)
+      .attr("height", height)
     .append("g")
-      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     .selectAll("text")
       .data(words)
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
-      .style("font-family", "Impact")
+      // changes font-family
+      .style("font-family", "Oswald")
+			.style("font-weight", "700")
+      // changes text color
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
       })
-      .text(function(d) { return d.text; });
+      .text(function(d) { return d.text; })
+      .on("click", function (d, i){
+          window.open(d.url, "_blank");
+      });
 }
+})();
 
-})();</script>
+$("#word-cloud").hide();
+$("#word-cloud").fadeIn(1200);
+</script>
