@@ -1,28 +1,5 @@
-== README
+== Cloudr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cloudr was made as a student project by Tyler Brewer and Tyler Machen at Flatiron School. We used Ruby on Rails and D3.js to make Cloudr. For commments or suggestions, send Tyler Machen or I a message and we will get back to you (or submit an issue).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+If you clone the repo and try to run the app on your local computer, make sure to run 'bundle' as well as 'rake db:seed' to get all of the Reddit categories. If you have any issues, please let us know :)
