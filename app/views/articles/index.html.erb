@@ -46,8 +46,8 @@ var jLink = <%= raw test3.to_json %>;
 
 var fill = d3.scale.category20d();
 
-var width = $(window).width();
-var height = $(window).height();
+var width = $(window).width() - 100;
+var height = $(window).height() - 100;
 
 var layout = d3.layout.cloud()
     .size([width, height])
