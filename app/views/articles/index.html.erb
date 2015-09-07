@@ -54,10 +54,8 @@ var layout = d3.layout.cloud()
         return {text: d[0], size: d[1] * 2, url: d[2]};
     }))
     .padding(1)
-		// .spiral('archimedean')
     .rotate(function() { return ~~(Math.random() * 1) * 90; })
-		// .rotate(function() { return (~~(Math.random() * 6) - 3) * 30; })
-    .font("Source Sans Pro")
+    .font("Oswald")
     .fontSize(function(d) { return d.size; })
     .on("end", drawCloud);
 layout.start();
@@ -73,8 +71,8 @@ function drawCloud(words) {
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
       // changes font-family
-      .style("font-family", "Source Sans Pro")
-			.style("font-weight", "600")
+      .style("font-family", "Oswald")
+			.style("font-weight", "700")
       // changes text color
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
