@@ -42,7 +42,6 @@
  	height: 5em;
  	margin-right: auto;
  	margin-left: auto;
-  z-index: 9999;
  }
  .logo {
  	float: left;
@@ -104,4 +103,21 @@ text {
 
 .description p {
   font-size: 1.2em;
+}
+
+.contact {
+  margin-top: 6em;
+}
+
+.brewer {
+  text-align: center;
+}
+
+.machen {
+  text-align: center;
+}
+
+.avatar {
+  margin: 0 auto;
+  height: 20em;
 }
