@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150906210308) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.integer  "rank"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150906210308) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["category_id"], name: "index_articles_on_category_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
