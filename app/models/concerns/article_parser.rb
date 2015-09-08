@@ -1,7 +1,6 @@
 module ArticleParser
   require 'json'
   require 'open-uri'
-  require 'pry'
 
   BASE_URL = "https://www.reddit.com/r"
   LIMIT = 50
