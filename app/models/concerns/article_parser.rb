@@ -10,7 +10,7 @@ module ArticleParser
   end
 
   def get_json(url)
-    JSON.load(open(url))
+    JSON.load(open(url, 'User-Agent' => 'Chrome/51.0.2704.103'))
   end
 
   def get_article_info(article_hash, category)
